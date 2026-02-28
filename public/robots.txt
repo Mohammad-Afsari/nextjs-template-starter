@@ -1,0 +1,27 @@
+# Block Facebook/Meta crawlers completely (they ignore Crawl-delay and consume millions of edge requests)
+# See: https://www.reddit.com/r/webdev/comments/1qpqapaj/metas_crawler_made_11_million_requests_to_my_site/
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: facebookexternalhit
+Disallow: /
+
+# Throttle Google crawlers
+User-agent: googlebot
+Crawl-delay: 30
+
+User-agent: googleother
+Crawl-delay: 30
+
+# Block WordPress/admin scanner bots
+User-agent: *
+Disallow: /author/
+Disallow: /wp-admin/
+Disallow: /wp-login
+Disallow: /wp-content/
+Disallow: /xmlrpc
+Disallow: /administrator/
+Disallow: /phpmyadmin/
+
+# Allow everything else
+Allow: /
